@@ -31,16 +31,6 @@ quest-log/
 ├── tsconfig.json
 └── README.md
 ```
-## 📸 Preview
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/4529c105-c867-428d-95df-a786562f59b4" width="49%" />
-  <img src="https://github.com/user-attachments/assets/24288b3f-3605-4001-a902-c20557f68a9c" width="49%" />
-</p>
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/15b156fa-be7a-45e8-9f68-d08c892c5f75" width="49%" />
-  <img src="https://github.com/user-attachments/assets/a54560b2-c39b-4d44-8198-ca3210f61413" width="49%" />
-</p>
 
 ## ✨ Features
 
@@ -88,7 +78,6 @@ Open http://localhost:3000 in your browser to view the application.
 ## Upcoming Quests
 
 * Add detailed project case studies
-* Publish blog posts and learning notes in Journal
 * Improve mobile responsiveness
 * Add project screenshots
 * Add resume
