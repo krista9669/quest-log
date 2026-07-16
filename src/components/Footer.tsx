@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { SiGithub, SiMedium } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa";
+import { SiGithub } from "react-icons/si";
+import { FaLinkedin} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -31,8 +31,8 @@ export default function Footer() {
             Projects
           </Link>
 
-          <Link href="/blog" className="hover:text-cyan-300 transition">
-            Blog
+          <Link href="/journal" className="hover:text-cyan-300 transition">
+            Journal
           </Link>
 
           <Link href="/contact" className="hover:text-cyan-300 transition">

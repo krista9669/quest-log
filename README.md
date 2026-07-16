@@ -16,8 +16,8 @@ quest-log/
 ├── src/
 │   ├── app/
 │   │   ├── about/
-│   │   ├── blog/
 │   │   ├── contact/
+│   │   ├── journal/
 │   │   ├── projects/
 │   │   ├── api/
 │   │   ├── layout.tsx
@@ -48,7 +48,7 @@ quest-log/
 * About Me page
 * Projects showcase
 * Contact form
-* Blog section (Quest Journal)
+* Journal section
 * Modern UI built with Tailwind CSS
 * Deployed on Vercel
 
@@ -88,7 +88,7 @@ Open http://localhost:3000 in your browser to view the application.
 ## Upcoming Quests
 
 * Add detailed project case studies
-* Publish blog posts and learning notes in Quest Journal
+* Publish blog posts and learning notes in Journal
 * Improve mobile responsiveness
 * Add project screenshots
 * Add resume
