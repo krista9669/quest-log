@@ -1,93 +1,155 @@
-# Quest-Log
+# Quest Log
 
-**Quest-Log** is my personal portfolio website built with **Next.js**, **TypeScript** and **Tailwind CSS**
+Quest Log is my personal portfolio, a place where I document my journey as a developer, showcase projects, experiment with ideas and keep track of everything I build along the way.
 
-It serves as a record of my journey, a place where I showcase projects, document ideas and share lessons learned along the way
+Ihe portfolio treats every project, experiment and lesson as another quest completed on my journey through software engineering and life.
 
-## 🌐 Live Website
+---
+
+## Live Website
 
 **Portfolio:** https://quest-log-krishitha.vercel.app/
 
-## 📂 Project Structure
+---
+
+## Preview
+
+<img width="100%" alt="Quest Log Preview" src="public/preview.png">
+
+---
+
+## Features
+
+- Interactive terminal-inspired landing page
+- Real-time notification center
+- Project showcase with detailed descriptions
+- Developer journal documenting experiments and learning
+- About page highlighting my journey and interests
+- Contact form with email integration
+- Smooth animations and micro-interactions
+- Dark, minimalist aesthetic inspired by terminals and RPG interfaces
+
+---
+
+## Built With
+
+- Next.js 15
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Icons
+- Nodemailer
+- Vercel
+
+---
+
+## Project Structure
 
 ```text
 quest-log/
 ├── public/
+│   └── assets
+│
 ├── src/
 │   ├── app/
 │   │   ├── about/
+│   │   ├── api/
 │   │   ├── contact/
 │   │   ├── journal/
 │   │   ├── projects/
-│   │   ├── api/
+│   │   ├── favicon.ico
+│   │   ├── globals.css
 │   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   └── globals.css
+│   │   └── page.tsx
+│   │
 │   └── components/
 │       ├── ContactForm.tsx
 │       ├── Footer.tsx
-│       └── Navbar.tsx
+│       ├── NavBar.tsx
+│       ├── NotificationCenter.tsx
+│       ├── PageHeader.tsx
+│       └── Terminal.tsx
+│
 ├── package.json
 ├── tsconfig.json
 └── README.md
 ```
 
-## ✨ Features
+---
 
-* Responsive design
-* About Me page
-* Projects showcase
-* Contact form
-* Journal section
-* Modern UI built with Tailwind CSS
-* Deployed on Vercel
+## Getting Started
 
-## 🛠️ Tech Stack
+Clone the repository
 
-* Next.js
-* TypeScript
-* Tailwind CSS
-* React Icons
-* Nodemailer
-* Vercel
-
-## ⚙️ Getting Started
-
-Clone the repository:
 ```bash
 git clone https://github.com/krista9669/quest-log.git
 ```
 
-Navigate to the project directory:
+Move into the project
+
 ```bash
 cd quest-log
 ```
 
-Install dependencies:
+Install dependencies
+
 ```bash
 npm install
 ```
 
-Start the development server:
+Run the development server
+
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser to view the application.
+Open
 
-## Upcoming Quests
-
-* Add detailed project case studies
-* Improve mobile responsiveness
-* Add project screenshots
-* Add resume
-* Introduce animations and micro-interactions
-* Add RPG-inspired gamification elements
-* Create achievement badges for milestones and skills unlocked
-* Build an interactive timeline of my journey as a developer
-* Continue exploring new technologies and documenting lessons learned
-* Add new side quests, experiments and open-source adventures
+```
+http://localhost:3000
+```
 
 ---
 
-Built with curiosity, caffeine, and far too many ideas
+## Current Quests
+
+- Improve responsiveness across all screen sizes
+- Add project case studies
+- Include project screenshots
+- Introduce accessibility improvements
+- Optimize performance
+- Continue documenting new projects and experiments
+
+---
+
+## Future Roadmap
+
+### Quest Log v2.1
+
+- Fully responsive layout
+- Rich project case studies
+- Better mobile experience
+- Accessibility enhancements
+- Performance optimizations
+
+### Beyond v2.1
+
+- Interactive developer timeline
+- Achievement system
+- Dynamic statistics dashboard
+- Searchable journal
+- Theme customization
+- More experiments and side quests
+
+---
+
+## Connect
+
+- **Portfolio:** https://quest-log-krishitha.vercel.app/
+- **GitHub:** https://github.com/krista9669
+- **LinkedIn:** https://linkedin.com/in/krishitha-k
+
+---
+
+Made with curiosity, coffee and countless late-night debugging sessions.
