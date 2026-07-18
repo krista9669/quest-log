@@ -273,7 +273,7 @@ export default function Home() {
             style={revealStyle(330)}
           >
             <a
-              href="/journal"
+              href="/projects"
               onMouseMove={handleTilt}
               onMouseLeave={resetTilt}
               className="w-full sm:w-auto rounded-full bg-cyan-500 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-black transition-colors duration-300 hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
@@ -282,7 +282,7 @@ export default function Home() {
               View projects
             </a>
             <a
-              href="/projects"
+              href="/journal"
               onMouseMove={handleTilt}
               onMouseLeave={resetTilt}
               className="w-full sm:w-auto rounded-full border border-slate-700 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-colors duration-300 hover:border-amber-300 hover:text-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
