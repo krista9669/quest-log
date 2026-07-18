@@ -1,4 +1,15 @@
 // app/projects/page.tsx
+"use client";
+
+import { useRef, useState } from "react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import PageHeader from "@/components/PageHeader";
 
 const projects = [
@@ -52,22 +63,130 @@ const highlights = [
   "Turning curiosity into projects and ideas into reality",
 ];
 
+function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+  const prefersReducedMotion = useReducedMotion();
+  const cardRef = useRef<HTMLAnchorElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Normalized -0.5..0.5 offset from card center, drives the tilt
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const springConfig = { stiffness: 180, damping: 20, mass: 0.4 };
+  const rotateX = useSpring(
+    useTransform(tiltY, [-0.5, 0.5], [9, -9]),
+    springConfig
+  );
+  const rotateY = useSpring(
+    useTransform(tiltX, [-0.5, 0.5], [-9, 9]),
+    springConfig
+  );
+
+  // 0..100% position within the card, drives the spotlight gradient
+  const spotlightX = useMotionValue(50);
+  const spotlightY = useMotionValue(50);
+  const spotlightBackground = useMotionTemplate`radial-gradient(280px circle at ${spotlightX}% ${spotlightY}%, rgba(34,211,238,0.16), transparent 65%)`;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (prefersReducedMotion || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const relX = (e.clientX - rect.left) / rect.width;
+    const relY = (e.clientY - rect.top) / rect.height;
+    tiltX.set(relX - 0.5);
+    tiltY.set(relY - 0.5);
+    spotlightX.set(relX * 100);
+    spotlightY.set(relY * 100);
+  };
+
+  const handleMouseEnter = () => setIsHovered(true);
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+
+  return (
+    <motion.a
+      ref={cardRef}
+      href={project.url}
+      target="_blank"
+      rel="noreferrer"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={
+        prefersReducedMotion
+          ? undefined
+          : { rotateX, rotateY, transformPerspective: 800 }
+      }
+      whileHover={{ y: prefersReducedMotion ? 0 : -4 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      animate={{
+        boxShadow: isHovered
+          ? "0 0 0 1px rgba(34,211,238,0.5), 0 20px 45px -15px rgba(34,211,238,0.25)"
+          : "0 0 0 0 rgba(34,211,238,0)",
+      }}
+      className={`group relative overflow-hidden rounded-[1.75rem] border bg-slate-900/80 p-5 transition-colors duration-300 hover:bg-slate-900/95 ${
+        isHovered ? "border-cyan-400/60" : "border-slate-700"
+      }`}
+    >
+      {/* Spotlight glow that follows the cursor */}
+      {!prefersReducedMotion && (
+        <motion.div
+          className="pointer-events-none absolute inset-0 rounded-[1.75rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{ background: spotlightBackground }}
+        />
+      )}
+
+      <div className="relative">
+        <div className="mb-3 flex items-center justify-between gap-4">
+          <h3 className="text-base sm:text-lg font-semibold text-white">
+            {project.name}
+          </h3>
+          <span
+            className={`rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+              isHovered
+                ? "bg-cyan-500/30 text-cyan-100"
+                : "bg-slate-700/40 text-slate-300"
+            }`}
+          >
+            GitHub
+          </span>
+        </div>
+        <p className="text-sm leading-6 text-slate-300">
+          {project.description}
+        </p>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-cyan-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-cyan-200"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.a>
+  );
+}
+
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen text-white">
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-24">
-        <section className="mb-12 sm:mb-16 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-10 shadow-2xl shadow-cyan-500/10 ring-1 ring-slate-700/60">
+      <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+        <section className="mb-8 sm:mb-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-2xl shadow-cyan-500/10 ring-1 ring-slate-700/60">
           <PageHeader
-            className="mb-8 sm:mb-10"
+            className="mb-6 sm:mb-8"
             eyebrow="What I've built"
             title="Projects"
             description="A selection of projects from my GitHub profile, focused on computer vision, machine learning, data analysis and practical web development."
           />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((item) => (
               <div
                 key={item}
-                className="rounded-[1.75rem] border border-slate-700 bg-slate-900/80 px-5 py-4 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-900/95"
+                className="rounded-[1.75rem] border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm sm:text-base text-slate-300 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-900/95"
               >
                 {item}
               </div>
@@ -75,9 +194,9 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        <section className="mt-12 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-2xl shadow-slate-950/20">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white">
+        <section className="mt-8 sm:mt-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-2xl shadow-slate-950/20">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="text-xl sm:text-2xl font-semibold text-white">
               Project Gallery
             </h2>
             <a
@@ -90,37 +209,9 @@ export default function ProjectsPage() {
             </a>
           </div>
 
-          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {projects.map((project) => (
-              <a
-                key={project.name}
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                className="group rounded-[1.75rem] border border-slate-700 bg-slate-900/80 p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-900/95 hover:shadow-xl hover:shadow-cyan-500/10"
-              >
-                <div className="mb-4 flex items-center justify-between gap-4">
-                  <h3 className="text-lg sm:text-2xl font-semibold text-white">
-                    {project.name}
-                  </h3>
-                  <span className="rounded-full bg-slate-700/40 px-3 py-1 text-xs uppercase tracking-[0.25em] text-slate-300">
-                    GitHub
-                  </span>
-                </div>
-                <p className="text-sm sm:text-base text-slate-300 leading-6 sm:leading-7">
-                  {project.description}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </a>
+              <ProjectCard key={project.name} project={project} />
             ))}
           </div>
         </section>

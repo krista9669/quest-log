@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quest-Log",
-  description: "Personal portfolio for Krishitha, featuring projects, about info, and contact details.",
+  title: "Krishitha - Personal Portfolio",
+  description: "My Personal Portfolio featuring projects, about info and contact details.",
 };
 
 export default function RootLayout({

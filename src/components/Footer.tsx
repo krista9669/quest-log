@@ -4,21 +4,21 @@ import { FaLinkedin} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950 mt-12 sm:mt-0">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 sm:gap-6 px-4 sm:px-8 py-6 sm:py-8">
+    <footer className="border-t border-slate-800 bg-slate-950 mt-6 sm:mt-0">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 sm:gap-5 px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         
         {/* Brand */}
         <div>
-          <h2 className="text-lg sm:text-2xl font-bold text-white">
+          <h2 className="text-base sm:text-lg font-bold text-white">
             Quest-Log
           </h2>
-          <p className="text-xs sm:text-base text-slate-400">
+          <p className="text-xs sm:text-sm text-slate-400">
             By Krishitha ♡
           </p>
         </div>
 
         {/* Navigation */}
-        <div className="flex flex-wrap items-center gap-4 sm:gap-8 text-xs sm:text-lg text-slate-300">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-300">
           <Link href="/" className="hover:text-cyan-300 transition">
             Home
           </Link>
@@ -41,14 +41,14 @@ export default function Footer() {
         </div>
 
         {/* Socials */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <a
             href="https://github.com/krista9669"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-cyan-300 transition"
           >
-            <SiGithub size={32} />
+            <SiGithub size={20} />
           </a>
 
           <a
@@ -57,13 +57,13 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-cyan-300 transition"
           >
-            <FaLinkedin size={32} />
+            <FaLinkedin size={20} />
           </a>
 
         </div>
       </div>
 
-      <div className="py-4 text-center text-xs sm:text-base text-slate-500">
+      <div className="py-1.5 text-center text-[11px] sm:text-xs text-slate-500">
         @ Quest Log {new Date().getFullYear()}
       </div>
     </footer>

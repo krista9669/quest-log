@@ -1,20 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-// Real activity — swap these as you publish new entries
-const LOG_ENTRIES = [
-  {
-    tag: "journal",
-    text: "Diffusion Transformer notes published in the Journal",
-    href: "/journal#dit",
-  },
-  {
-    tag: "lab",
-    text: "OpenCV pipeline experiments documented in the Journal",
-    href: "/journal#opencv",
-  },
-];
+import Terminal from "@/components/Terminal";
+import NotificationCenter from "@/components/NotificationCenter";
 
 const AVAILABLE_FOR_WORK = true;
 
@@ -33,7 +21,6 @@ export default function Home() {
   const [easterEggOpen, setEasterEggOpen] = useState(false);
   const compassRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const tickerRef = useRef<HTMLSpanElement>(null);
   const konamiIndex = useRef(0);
 
   useEffect(() => setMounted(true), []);
@@ -191,48 +178,6 @@ export default function Home() {
     };
   }, [reducedMotion]);
 
-  // Terminal-style typewriter ticker
-  useEffect(() => {
-    const el = tickerRef.current;
-    if (!el) return;
-    let entryIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const step = () => {
-      const entry = LOG_ENTRIES[entryIndex];
-      const full = `${entry.tag} — ${entry.text}`;
-      if (reducedMotion) {
-        el.textContent = full;
-        return;
-      }
-      if (!deleting) {
-        charIndex++;
-        el.textContent = full.slice(0, charIndex);
-        if (charIndex === full.length) {
-          deleting = false;
-          timeout = setTimeout(() => {
-            deleting = true;
-            step();
-          }, 1800);
-          return;
-        }
-        timeout = setTimeout(step, 28);
-      } else {
-        charIndex--;
-        el.textContent = full.slice(0, charIndex);
-        if (charIndex === 0) {
-          deleting = false;
-          entryIndex = (entryIndex + 1) % LOG_ENTRIES.length;
-        }
-        timeout = setTimeout(step, 14);
-      }
-    };
-    step();
-    return () => clearTimeout(timeout);
-  }, [reducedMotion]);
-
   // Subtle 3D tilt on the CTA cards
   const handleTilt = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (reducedMotion) return;
@@ -256,21 +201,23 @@ export default function Home() {
   const revealStyle = (delayMs: number) => ({ transitionDelay: `${delayMs}ms` });
 
   return (
-    <div className="min-h-[calc(100vh-192px)] text-white relative overflow-hidden">
+    <div className="min-h-[calc(100dvh-160px)] text-white relative overflow-hidden">
       <canvas
         ref={canvasRef}
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full opacity-95"
       />
 
+      <NotificationCenter />
+
       <main className="relative">
-        <section className="flex min-h-[calc(100vh-192px)] flex-col items-center justify-center px-4 sm:px-6 text-center">
+        <section className="flex min-h-[calc(100dvh-160px)] flex-col items-center justify-center px-4 sm:px-6 py-10 sm:py-0 text-center">
           {/* Eyebrow + literal compass needle */}
           <div
-            className={`mb-5 flex items-center gap-3 ${reveal(0)}`}
+            className={`mb-4 sm:mb-5 flex items-center gap-2 sm:gap-3 ${reveal(0)}`}
             style={revealStyle(0)}
           >
-            <div ref={compassRef} className="relative h-6 w-6 sm:h-7 sm:w-7 shrink-0">
+            <div ref={compassRef} className="relative h-5 w-5 sm:h-6 sm:w-6 shrink-0">
               <svg viewBox="0 0 24 24" className="h-full w-full">
                 <circle cx="12" cy="12" r="10.5" fill="none" stroke="rgba(94,234,212,0.35)" strokeWidth="1" />
                 <g
@@ -285,14 +232,14 @@ export default function Home() {
                 </g>
               </svg>
             </div>
-            <p className="text-xs sm:text-base uppercase tracking-[0.4em] text-cyan-300">
+            <p className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-cyan-300">
               Curiosity is the compass
             </p>
           </div>
 
           {/* Personal intro line */}
           <p
-            className={`mb-3 text-sm sm:text-lg text-slate-400 ${reveal(60)}`}
+            className={`mb-2 sm:mb-3 text-xs sm:text-sm md:text-base text-slate-400 ${reveal(60)}`}
             style={revealStyle(60)}
           >
             Hi, I&apos;m <span className="text-white font-semibold">Krishitha</span> — 3rd-year CS
@@ -300,47 +247,36 @@ export default function Home() {
           </p>
 
           <h1
-            className={`mb-5 text-4xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-tight transition-transform duration-300 hover:scale-[1.02] hover:text-cyan-300 ${reveal(120)}`}
+            className={`mb-4 sm:mb-5 text-[clamp(2.25rem,7vw,4.25rem)] font-bold tracking-tight leading-[1.05] transition-transform duration-300 hover:scale-[1.02] hover:text-cyan-300 ${reveal(120)}`}
             style={revealStyle(120)}
           >
             Quest-Log
           </h1>
 
           <p
-            className={`mx-auto mb-6 max-w-3xl text-center text-sm sm:text-xl leading-7 sm:leading-9 text-slate-400 ${reveal(190)}`}
+            className={`mx-auto mb-5 sm:mb-6 max-w-md sm:max-w-xl text-center text-sm sm:text-base leading-6 sm:leading-7 text-slate-400 ${reveal(190)}`}
             style={revealStyle(190)}
           >
             A working record of what I&apos;m building, learning and investigating
           </p>
 
-          {/* Terminal ticker */}
+          {/* Interactive terminal */}
           <div
-            className={`mb-10 w-full max-w-xl rounded-lg border border-slate-800 bg-black/30 px-4 py-3 text-left font-mono text-[11px] sm:text-sm text-slate-300 backdrop-blur-sm ${reveal(260)}`}
+            className={`mb-6 sm:mb-7 w-full max-w-md sm:max-w-lg ${reveal(260)}`}
             style={revealStyle(260)}
           >
-            <div className="mb-1.5 flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-rose-400/70" />
-              <span className="h-2 w-2 rounded-full bg-amber-400/70" />
-              <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
-              <span className="ml-2 text-[10px] uppercase tracking-widest text-slate-500">
-                latest.log
-              </span>
-            </div>
-            <div className="min-h-[1.4em]">
-              <span ref={tickerRef} />
-              <span className="animate-pulse text-cyan-300">▍</span>
-            </div>
+            <Terminal />
           </div>
 
           <div
-            className={`mt-2 flex flex-col items-center gap-3 sm:gap-4 w-full sm:w-auto sm:flex-row sm:justify-center px-2 sm:px-0 ${reveal(330)}`}
+            className={`flex flex-col items-center gap-2.5 sm:gap-3 w-full sm:w-auto sm:flex-row sm:justify-center px-2 sm:px-0 ${reveal(330)}`}
             style={revealStyle(330)}
           >
             <a
               href="/journal"
               onMouseMove={handleTilt}
               onMouseLeave={resetTilt}
-              className="w-full sm:w-auto rounded-full bg-cyan-500 px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-semibold text-black transition-colors duration-300 hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              className="w-full sm:w-auto rounded-full bg-cyan-500 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-black transition-colors duration-300 hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
               style={{ transition: "transform 0.15s ease, background-color 0.3s ease" }}
             >
               Read journal
@@ -349,7 +285,7 @@ export default function Home() {
               href="/projects"
               onMouseMove={handleTilt}
               onMouseLeave={resetTilt}
-              className="w-full sm:w-auto rounded-full border border-slate-700 px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-semibold text-white transition-colors duration-300 hover:border-amber-300 hover:text-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              className="w-full sm:w-auto rounded-full border border-slate-700 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-colors duration-300 hover:border-amber-300 hover:text-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
               style={{ transition: "transform 0.15s ease, border-color 0.3s ease, color 0.3s ease" }}
             >
               View projects
@@ -357,7 +293,7 @@ export default function Home() {
           </div>
 
           <div
-            className={`mt-10 flex items-center gap-4 font-mono text-[11px] sm:text-xs text-slate-400 ${reveal(400)}`}
+            className={`mt-7 sm:mt-8 flex items-center gap-3 sm:gap-4 font-mono text-[10px] sm:text-[11px] text-slate-400 ${reveal(400)}`}
             style={revealStyle(400)}
           >
             <span className="flex items-center gap-1.5 text-slate-300">

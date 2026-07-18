@@ -1,8 +1,14 @@
+// components/ContactForm.tsx
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  onSuccess?: () => void;
+}
+
+export default function ContactForm({ onSuccess }: ContactFormProps) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,6 +41,7 @@ export default function ContactForm() {
       setStatus("success");
       setEmail("");
       setMessage("");
+      onSuccess?.();
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
       setStatus("error");
@@ -48,7 +55,10 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="email" className="block text-lg font-medium text-white mb-3">
+        <label
+          htmlFor="email"
+          className="block text-lg font-medium text-white mb-3"
+        >
           Your Email
         </label>
         <input
@@ -63,7 +73,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-lg font-medium text-white mb-3">
+        <label
+          htmlFor="message"
+          className="block text-lg font-medium text-white mb-3"
+        >
           Message
         </label>
         <textarea
@@ -78,24 +91,67 @@ export default function ContactForm() {
       </div>
 
       <button
-        type="submit"
-        disabled={loading}
-        className="w-full rounded-lg bg-cyan-500 px-6 py-3 text-lg font-semibold text-white transition hover:bg-cyan-600 disabled:bg-slate-600 disabled:cursor-not-allowed"
+         type="submit"
+         disabled={loading}
+         className="w-full rounded-lg bg-cyan-500 px-6 py-3 text-lg font-semibold text-white transition hover:bg-cyan-600 disabled:bg-slate-600 disabled:cursor-not-allowed"
       >
-        {loading ? "Sending..." : "Send Message"}
+         {loading ? "Sending..." : "Send Message"}
       </button>
 
-      {status === "success" && (
-        <div className="rounded-lg border border-green-500/20 bg-green-500/10 px-4 py-3 text-green-300">
-          ✓ Message sent successfully! I'll get back to you soon.
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {status === "success" && (
+          <motion.div
+            key="success"
+            initial={{ opacity: 0, scale: 0.95, y: -6 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -6 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="flex items-center gap-2.5 rounded-lg border border-green-500/20 bg-green-500/10 px-4 py-3 text-green-300"
+          >
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5 shrink-0"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </motion.svg>
+            Message sent successfully! I&apos;ll get back to you soon.
+          </motion.div>
+        )}
 
-      {status === "error" && (
-        <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-red-300">
-          ✗ {errorMessage}
-        </div>
-      )}
+        {status === "error" && (
+          <motion.div
+            key="error"
+            initial={{ opacity: 0, scale: 0.95, y: -6 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -6 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="flex items-center gap-2.5 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-red-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5 shrink-0"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+            {errorMessage}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </form>
   );
 }
