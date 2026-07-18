@@ -14,7 +14,8 @@ Ihe portfolio treats every project, experiment and lesson as another quest compl
 
 ## Preview
 
-<img width="100%" alt="Quest Log Preview" src="public/preview.png">
+<img width="500" height="250" alt="image" src="https://github.com/user-attachments/assets/8206fd1d-c5cc-41c7-993f-2ca704256d26" />
+
 
 ---
 
