@@ -141,7 +141,7 @@ function SocialButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/60 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-400/40 hover:bg-slate-800 hover:text-cyan-300"
+      className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-800/60 px-3 py-1.5 text-xs sm:text-sm text-slate-200 transition hover:border-cyan-400/40 hover:bg-slate-800 hover:text-cyan-300"
     >
       {icon}
       {label}
@@ -166,9 +166,9 @@ export default function ContactPage() {
         <section className="rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-2xl shadow-cyan-500/10 ring-1 ring-slate-700/60">
           <PageHeader
             className="mb-4 sm:mb-5"
-            eyebrow="Get in touch"
+            eyebrow="Reach Out"
             title="Contact"
-            description="I'm always open to new opportunities and conversations."
+            description="Always open to new conversations"
           />
 
           <div className="mb-6 sm:mb-8">
@@ -195,16 +195,16 @@ export default function ContactPage() {
               <h2 className="mb-2.5 text-lg sm:text-xl font-semibold text-white">
                 Social
               </h2>
-              <div className="flex flex-wrap gap-4 sm:gap-5">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
               <SocialButton
                 href="https://github.com/krista9669"
-                icon={<FaGithub className="h-4 w-4" />}
+                icon={<FaGithub className="h-3.5 w-3.5" />}
                 label="GitHub"
               />
 
               <SocialButton
                 href="https://www.linkedin.com/in/krishitha-k/"
-                icon={<FaLinkedin className="h-4 w-4" />}
+                icon={<FaLinkedin className="h-3.5 w-3.5" />}
                 label="LinkedIn"
               />
               </div>
@@ -223,13 +223,6 @@ export default function ContactPage() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="rounded-[1.75rem] border bg-slate-900/80 p-5 sm:p-6 transition-transform duration-300 hover:-translate-y-1 hover:bg-slate-900/95"
             >
-              <h2 className="mb-2.5 text-lg sm:text-xl font-semibold text-white">
-                Get in Touch
-              </h2>
-              <p className="mb-3 sm:mb-4 text-sm sm:text-base text-slate-300">
-                Fill out the form and I&apos;ll get back to you as soon as
-                possible.
-              </p>
               <ContactForm onSuccess={handleFormSuccess} />
             </motion.div>
           </div>

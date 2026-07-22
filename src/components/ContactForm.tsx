@@ -116,7 +116,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-5 w-5 shrink-0"
+              className="h-4 w-4 sm:h-5 sm:w-5 shrink-0"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
@@ -144,7 +144,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-5 w-5 shrink-0"
+              className="h-4 w-4 sm:h-5 sm:w-5 shrink-0"
             >
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
