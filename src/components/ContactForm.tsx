@@ -53,11 +53,11 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
       <div>
         <label
           htmlFor="email"
-          className="block text-lg font-medium text-white mb-3"
+          className="block text-base sm:text-lg font-medium text-white mb-2 sm:mb-3"
         >
           Your Email
         </label>
@@ -68,14 +68,14 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           required
           placeholder="your@email.com"
-          className="w-full rounded-lg border border-slate-700 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 transition focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20"
+          className="w-full rounded-lg border border-slate-700 bg-slate-900/50 px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20"
         />
       </div>
 
       <div>
         <label
           htmlFor="message"
-          className="block text-lg font-medium text-white mb-3"
+          className="block text-base sm:text-lg font-medium text-white mb-2 sm:mb-3"
         >
           Message
         </label>
@@ -86,16 +86,16 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           required
           placeholder="Your message here..."
           rows={6}
-          className="w-full rounded-lg border border-slate-700 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 transition focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 resize-none"
+          className="w-full rounded-lg border border-slate-700 bg-slate-900/50 px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-white placeholder-slate-500 transition focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 resize-none"
         />
       </div>
 
       <button
-         type="submit"
-         disabled={loading}
-         className="w-full rounded-lg bg-cyan-500 px-6 py-3 text-lg font-semibold text-white transition hover:bg-cyan-600 disabled:bg-slate-600 disabled:cursor-not-allowed"
+        type="submit"
+        disabled={loading}
+        className="w-full rounded-lg bg-cyan-500 px-5 py-2.5 sm:px-6 sm:py-3 text-base sm:text-lg font-semibold text-white transition hover:bg-cyan-600 disabled:bg-slate-600 disabled:cursor-not-allowed"
       >
-         {loading ? "Sending..." : "Send Message"}
+        {loading ? "Sending..." : "Send Message"}
       </button>
 
       <AnimatePresence mode="wait">
@@ -106,7 +106,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -6 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="flex items-center gap-2.5 rounded-lg border border-green-500/20 bg-green-500/10 px-4 py-3 text-green-300"
+            className="flex items-center gap-2.5 rounded-lg border border-green-500/20 bg-green-500/10 px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-green-300"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -6 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="flex items-center gap-2.5 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-red-300"
+            className="flex items-center gap-2.5 rounded-lg border border-red-500/20 bg-red-500/10 px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-red-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

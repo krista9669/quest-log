@@ -156,7 +156,7 @@ export default function AboutPage() {
     <div className="min-h-screen text-white">
       <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
         <section
-          className={`mb-8 sm:mb-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-2xl shadow-cyan-500/10 ring-1 ring-slate-700/60 ${reveal(0)}`}
+          className={`mb-8 sm:mb-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-5 sm:p-8 shadow-2xl shadow-cyan-500/10 ring-1 ring-slate-700/60 ${reveal(0)}`}
           style={revealStyle(0)}
         >
           <PageHeader
@@ -249,7 +249,7 @@ export default function AboutPage() {
         </div>
 
         <section
-          className={`mt-8 sm:mt-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-xl shadow-slate-950/20 ${reveal(200)}`}
+          className={`mt-8 sm:mt-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-5 sm:p-8 shadow-xl shadow-slate-950/20 ${reveal(200)}`}
           style={revealStyle(200)}
         >
           <h2 className="text-xl sm:text-2xl font-semibold text-white">
@@ -271,7 +271,7 @@ export default function AboutPage() {
         </section>
 
         <section
-          className={`mt-8 sm:mt-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-6 sm:p-8 shadow-2xl shadow-slate-950/20 ${reveal(260)}`}
+          className={`mt-8 sm:mt-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-5 sm:p-8 shadow-2xl shadow-slate-950/20 ${reveal(260)}`}
           style={revealStyle(260)}
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -301,7 +301,7 @@ export default function AboutPage() {
             Tap a skill to see which projects use it.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {visibleSkills.map((skill) => {
               const Icon = skill.icon;
               const isOpen = activeSkill === skill.name;
@@ -323,7 +323,7 @@ export default function AboutPage() {
                   }}
                   aria-expanded={hasProjects ? isOpen : undefined}
                   style={{ transition: "transform 0.15s ease, border-color 0.3s ease, background-color 0.3s ease" }}
-                  className={`group rounded-[1.75rem] border p-4 sm:p-5 text-center will-change-transform hover:shadow-xl hover:shadow-cyan-500/10 ${
+                  className={`group rounded-[1.75rem] border p-3 sm:p-5 text-center will-change-transform hover:shadow-xl hover:shadow-cyan-500/10 ${
                     hasProjects ? "cursor-pointer" : "cursor-default"
                   } ${
                     isOpen
@@ -331,7 +331,7 @@ export default function AboutPage() {
                       : "border-slate-700 bg-slate-900/80 hover:border-cyan-400/40 hover:bg-slate-900/95"
                   }`}
                 >
-                  <div className="relative mx-auto mb-3 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-slate-800/50 text-2xl sm:text-3xl transition-transform duration-300 group-hover:scale-110">
+                  <div className="relative mx-auto mb-2 sm:mb-3 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-slate-800/50 text-2xl sm:text-3xl transition-transform duration-300 group-hover:scale-110">
                     <div style={{ color: skill.color }}>
                       <Icon />
                     </div>

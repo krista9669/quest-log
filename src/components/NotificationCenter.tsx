@@ -178,7 +178,7 @@ export default function NotificationCenter() {
   const Icon = notification?.icon;
 
   return (
-    <div className="pointer-events-none absolute top-4 right-4 z-30 sm:top-6 sm:right-6">
+    <div className="pointer-events-none absolute top-3 right-3 z-30 sm:top-6 sm:right-6">
       <AnimatePresence>
         {notification && Icon && (
           <motion.div
@@ -196,20 +196,20 @@ export default function NotificationCenter() {
                 ? { duration: 0.2 }
                 : { type: "spring", stiffness: 320, damping: 28 }
             }
-            className="pointer-events-auto w-60 cursor-default rounded-xl border border-slate-700/50 bg-slate-900/70 px-3.5 py-3 shadow-2xl shadow-black/40 backdrop-blur-md sm:w-72"
+            className="pointer-events-auto w-48 cursor-default rounded-xl border border-slate-700/50 bg-slate-900/70 px-2.5 py-2 shadow-2xl shadow-black/40 backdrop-blur-md sm:w-72 sm:px-3.5 sm:py-3"
           >
-            <div className="flex items-start gap-2.5">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-800/80 text-slate-300">
-                <Icon size={14} strokeWidth={1.75} />
+            <div className="flex items-start gap-2 sm:gap-2.5">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800/80 text-slate-300 sm:h-7 sm:w-7">
+                <Icon className="h-3.5 w-3.5 sm:h-[14px] sm:w-[14px]" strokeWidth={1.75} />
               </span>
               <div className="min-w-0 flex-1 text-left">
-                <p className="text-[13px] font-semibold text-white">
+                <p className="text-[11px] font-semibold text-white sm:text-[13px]">
                   {notification.title}
                 </p>
-                <p className="mt-0.5 text-xs leading-snug text-slate-400">
+                <p className="mt-0.5 text-[10px] leading-snug text-slate-400 sm:text-xs">
                   {notification.description}
                 </p>
-                <p className="mt-1 text-[10px] text-slate-500">
+                <p className="mt-1 text-[9px] text-slate-500 sm:text-[10px]">
                   {notification.timestamp}
                 </p>
               </div>

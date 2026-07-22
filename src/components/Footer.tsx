@@ -46,7 +46,7 @@ export default function Footer() {
             href="https://github.com/krista9669"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-400 hover:text-cyan-300 transition"
+            className="text-lg sm:text-xl text-slate-400 hover:text-cyan-300 transition"
           >
             <SiGithub size={20} />
           </a>
@@ -55,7 +55,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/krishitha-k/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-400 hover:text-cyan-300 transition"
+            className="text-lg sm:text-xl text-slate-400 hover:text-cyan-300 transition"
           >
             <FaLinkedin size={20} />
           </a>

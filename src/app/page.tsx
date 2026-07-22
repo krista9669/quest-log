@@ -293,7 +293,7 @@ export default function Home() {
           </div>
 
           <div
-            className={`mt-7 sm:mt-8 flex items-center gap-3 sm:gap-4 font-mono text-[10px] sm:text-[11px] text-slate-400 ${reveal(400)}`}
+            className={`mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono text-[10px] sm:text-[11px] text-slate-400 ${reveal(400)}`}
             style={revealStyle(400)}
           >
             <span className="flex items-center gap-1.5 text-slate-300">
