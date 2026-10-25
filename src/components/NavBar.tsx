@@ -44,9 +44,6 @@ export default function NavBar() {
           <Link href="/journal" className={linkClass("/journal")}>
             Journal
           </Link>
-          <Link href="/contact" className={linkClass("/contact")}>
-            Contact
-          </Link>
         </div>
       </div>
     </nav>

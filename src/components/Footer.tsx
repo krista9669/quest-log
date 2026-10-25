@@ -35,9 +35,6 @@ export default function Footer() {
             Journal
           </Link>
 
-          <Link href="/contact" className="hover:text-cyan-300 transition">
-            Contact
-          </Link>
         </div>
 
         {/* Socials */}

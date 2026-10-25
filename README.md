@@ -2,7 +2,7 @@
 
 Quest Log is my personal portfolio, a place where I document my journey as a developer, showcase projects, experiment with ideas and keep track of everything I build along the way.
 
-Ihe portfolio treats every project, experiment and lesson as another quest completed on my journey through software engineering and life.
+The portfolio treats every project, experiment and lesson as another quest completed on my journey through software engineering and life.
 
 ---
 
@@ -26,7 +26,7 @@ Ihe portfolio treats every project, experiment and lesson as another quest compl
 - Project showcase with detailed descriptions
 - Developer journal documenting experiments and learning
 - About page highlighting my journey and interests
-- Contact form with email integration
+- Contact links at the end of the About page
 - Smooth animations and micro-interactions
 - Dark, minimalist aesthetic inspired by terminals and RPG interfaces
 
@@ -34,8 +34,8 @@ Ihe portfolio treats every project, experiment and lesson as another quest compl
 
 ## Built With
 
-- Next.js 15
-- React
+- Next.js 16
+- React 19
 - TypeScript
 - Tailwind CSS
 - Framer Motion
@@ -56,7 +56,6 @@ quest-log/
 │   ├── app/
 │   │   ├── about/
 │   │   ├── api/
-│   │   ├── contact/
 │   │   ├── journal/
 │   │   ├── projects/
 │   │   ├── favicon.ico
@@ -110,6 +109,8 @@ Open
 ```
 http://localhost:3000
 ```
+
+Use the links in the About page’s **Get in touch** section to reach me by email, GitHub, or LinkedIn.
 
 ---
 

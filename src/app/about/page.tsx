@@ -69,6 +69,7 @@ const FUN_FACT =
   "I usually fall in love with a project name before I figure out what the project is. Quest Log was no different. It eventually became a record of my journey; every project, every experiment, every lesson and every small step toward becoming a better engineer. ";
 
 const TYPEWRITER_TEXT = "Hi, I'm Krishitha 👋";
+const CONTACT_EMAIL = "krishithaaaa@gmail.com";
 
 function useTypewriter(text: string, enabled: boolean, speedMs = 55) {
   const [displayed, setDisplayed] = useState(enabled ? "" : text);
@@ -376,6 +377,51 @@ export default function AboutPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          className={`mt-8 sm:mt-10 rounded-[2rem] border border-slate-700 bg-slate-950/85 p-5 sm:p-8 shadow-2xl shadow-cyan-500/10 ${reveal(320)}`}
+          style={revealStyle(320)}
+        >
+          <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
+                Get in touch
+              </p>
+              <h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl">
+                Let&apos;s connect
+              </h2>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300 sm:text-base">
+                Have a question, an idea, or just want to chat? I&apos;d love to
+                hear from you.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Let's connect")}`}
+                className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              >
+                Email me
+              </a>
+              <a
+                href="https://github.com/krista9669"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-cyan-400/40 hover:text-cyan-300"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/krishitha-k/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-cyan-400/40 hover:text-cyan-300"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </section>
       </main>
