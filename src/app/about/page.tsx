@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { ChevronDown, ExternalLink } from "lucide-react";
+import { FaJava } from "react-icons/fa";
 import {
   SiHtml5,
   SiCss,
@@ -13,6 +14,7 @@ import {
   SiPython,
   SiC,
   SiCplusplus,
+  SiNodedotjs,
   SiGit,
   SiGithub,
   SiTypescript,
@@ -36,6 +38,7 @@ const SKILLS = [
   { icon: SiPython, name: "Python", color: "#3776AB", category: "Languages", projects: [PROJECTS.f1, PROJECTS.cv, PROJECTS.cardioTwin] },
   { icon: SiC, name: "C", color: "#A8B9CC", category: "Languages", projects: [] },
   { icon: SiCplusplus, name: "C++", color: "#00599C", category: "Languages", projects: [] },
+  { icon: FaJava, name: "Java", color: "#ED8B00", category: "Languages", projects: [] },
   { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E", category: "Languages", projects: [PROJECTS.questLog] },
   { icon: SiTypescript, name: "TypeScript", color: "#3178C6", category: "Languages", projects: [PROJECTS.questLog] },
   { icon: SiReact, name: "React", color: "#61DAFB", category: "Web", projects: [PROJECTS.questLog] },
@@ -43,6 +46,7 @@ const SKILLS = [
   { icon: SiHtml5, name: "HTML", color: "#E34F26", category: "Web", projects: [PROJECTS.cardioTwin] },
   { icon: SiCss, name: "CSS", color: "#1572B6", category: "Web", projects: [PROJECTS.questLog] },
   { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38B2AC", category: "Web", projects: [PROJECTS.questLog] },
+  { icon: SiNodedotjs, name: "Node.js", color: "#339933", category: "Web", projects: [PROJECTS.questLog] },
   { icon: SiPandas, name: "Pandas", color: "#150458", category: "Data & ML", projects: [PROJECTS.f1] },
   { icon: SiNumpy, name: "NumPy", color: "#F9C74F", category: "Data & ML", projects: [PROJECTS.f1, PROJECTS.cardioTwin] },
   { icon: SiPlotly, name: "Matplotlib", color: "#FF6F00", category: "Data & ML", projects: [PROJECTS.f1] },
@@ -68,7 +72,7 @@ const INTERESTS = [
 const FUN_FACT =
   "I usually fall in love with a project name before I figure out what the project is. Quest Log was no different. It eventually became a record of my journey; every project, every experiment, every lesson and every small step toward becoming a better engineer. ";
 
-const TYPEWRITER_TEXT = "Hi, I'm Krishitha 👋";
+const TYPEWRITER_TEXT = "Hi, I'm Krishitha";
 const CONTACT_EMAIL = "krishithaaaa@gmail.com";
 
 function useTypewriter(text: string, enabled: boolean, speedMs = 55) {
@@ -195,7 +199,7 @@ export default function AboutPage() {
                 aria-expanded={showFunFact}
                 className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-900/80 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-300"
               >
-                🎲 Fun fact
+                Fun fact
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-300 ${
                     showFunFact ? "rotate-180" : "rotate-0"
