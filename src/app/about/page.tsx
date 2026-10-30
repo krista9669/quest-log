@@ -251,12 +251,12 @@ const CATEGORIES = [
 ];
 
 const INTERESTS = [
-  "Git Repository Analytics",
   "Machine Learning",
-  "Formula 1 Data Visualization",
-  "Python Parsing",
-  "VS Code Themes",
+  "Data Visualization",
   "Web Development",
+  "AI Agents",
+  "Data Anayltics",
+  "Big Data",
 ];
 
 const FUN_FACT =
