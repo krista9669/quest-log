@@ -40,12 +40,12 @@ const COMMAND_OUTPUT: Record<string, Output> = {
   projects: {
     kind: "text",
     lines: [
-      "✓ Regulus VS Code Theme",
+      "✓ pose-to-cloth-prediction",
       "✓ Quest-Log",
       "✓ OpenCV Vision Pipeline",
       "✓ F1 Analytics",
       "✓ CardioTwin",
-      "✓ ML Basics",
+      "✓ Electronics Store Inventory Management System",
     ],
   },
   contact: {
