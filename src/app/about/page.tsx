@@ -252,10 +252,10 @@ const CATEGORIES = [
 
 const INTERESTS = [
   "Machine Learning",
-  "Data Visualization",
   "Web Development",
   "AI Agents",
   "Data Anayltics",
+  "Database Management",
   "Big Data",
 ];
 
