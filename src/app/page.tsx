@@ -211,7 +211,7 @@ export default function Home() {
       <NotificationCenter />
 
       <main className="relative">
-        <section className="flex min-h-[calc(100dvh-160px)] flex-col items-center justify-center px-4 sm:px-6 py-10 sm:py-0 text-center">
+        <section className="mx-auto flex min-h-[calc(100dvh-160px)] w-full max-w-5xl flex-col items-center justify-center px-4 py-10 text-center sm:px-6 sm:py-0 lg:px-8">
           {/* Eyebrow + literal compass needle */}
           <div
             className={`mb-4 sm:mb-5 flex items-center gap-2 sm:gap-3 ${reveal(0)}`}
