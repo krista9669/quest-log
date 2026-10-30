@@ -11,49 +11,50 @@ import {
   useTransform,
 } from "framer-motion";
 import PageHeader from "@/components/PageHeader";
+import DataEngineeringSection from "@/components/DataEngineeringSection";
 
 const projects = [
   {
+    name: "pose-to-cloth-prediction",
+    description:
+      "Machine learning-based pose-to-cloth prediction using neural networks, PCA, ReLU and Adam for fast, interactive garment deformation.",
+    tags: ["Python"],
+    url: "https://github.com/krista9669/pose-to-cloth-prediction",
+  },
+  {
     name: "quest-log",
     description:
-      "This portfolio site built with Next.js, Tailwind, and a modern web app layout.",
-    tags: ["Next.js", "React", "Web"],
+      "A collection of my projects, experiences, and side quests as I continue learning, building, and exploring new ideas.",
+    tags: ["TypeScript"],
     url: "https://github.com/krista9669/quest-log",
-  },
-  {
-    name: "F1",
-    description:
-      "Formula 1 data analytics and visualizations using FastF1, pandas, and Plotly.",
-    tags: ["Python", "Data", "Visualization"],
-    url: "https://github.com/krista9669/F1",
-  },
-  {
-    name: "CV",
-    description:
-      "Computer vision notebooks for image processing, OpenCV practice, and real-world examples.",
-    tags: ["Python", "OpenCV", "Learning"],
-    url: "https://github.com/krista9669/CV_basics",
-  },
-  {
-    name: "ML_basics",
-    description:
-      "Machine learning experiments and notebook-driven model exploration.",
-    tags: ["Python", "ML", "Notebooks"],
-    url: "https://github.com/krista9669/ML_basics",
   },
   {
     name: "CardioTwin",
     description:
-      "Frontend health interface built with HTML and CSS, focused on design and responsiveness.",
-    tags: ["HTML", "UI", "Design"],
+      "A health-focused project built with HTML.",
+    tags: ["HTML"],
     url: "https://github.com/krista9669/CardioTwin",
   },
   {
-    name: "Regulus",
+    name: "CV",
     description:
-      "A handcrafted Visual Studio Code theme designed with readability and consistency in mind.",
-    tags: ["VS Code", "Theme"],
-    url: "https://github.com/krista9669/regulus-vscode-theme",
+      "Computer vision projects and experiments in Jupyter Notebook.",
+    tags: ["Jupyter Notebook"],
+    url: "https://github.com/krista9669/CV",
+  },
+  {
+    name: "F1",
+    description:
+      "Data analytics and visualization of Formula 1 race results and championship standings.",
+    tags: ["Python"],
+    url: "https://github.com/krista9669/F1",
+  },
+  {
+    name: "Electronics Store Inventory Management System",
+    description:
+      "A software engineering project for an electronics store inventory management system, with inventory management, reporting, a dashboard, authentication and security.",
+    tags: ["Python"],
+    url: "https://github.com/ElectronicsStore-ManagementSystem/Team-9-Electronics-Store-Inventory-Management-System",
   },
 ];
 
@@ -215,6 +216,8 @@ export default function ProjectsPage() {
             ))}
           </div>
         </section>
+
+        <DataEngineeringSection />
       </main>
     </div>
   );

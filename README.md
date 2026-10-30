@@ -9,6 +9,7 @@ The portfolio treats every project, experiment and lesson as another quest compl
 ## Live Website
 
 **Portfolio:** https://quest-log-krishitha.vercel.app/
+**Version:** 1.0.2
 
 ---
 
@@ -23,7 +24,7 @@ The portfolio treats every project, experiment and lesson as another quest compl
 
 - Interactive terminal-inspired landing page
 - Real-time notification center
-- Project showcase with detailed descriptions
+- Project showcase with detailed descriptions, including a Big Data & Data Engineering section
 - Developer journal documenting experiments and learning
 - About page highlighting my journey and interests
 - Contact links at the end of the About page
@@ -65,6 +66,7 @@ quest-log/
 │   │
 │   └── components/
 │       ├── ContactForm.tsx
+│       ├── DataEngineeringSection.tsx
 │       ├── Footer.tsx
 │       ├── NavBar.tsx
 │       ├── NotificationCenter.tsx

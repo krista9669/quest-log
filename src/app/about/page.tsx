@@ -10,65 +10,255 @@ import {
   SiCss,
   SiJavascript,
   SiReact,
-  SiTailwindcss,
   SiPython,
   SiC,
   SiCplusplus,
-  SiNodedotjs,
   SiGit,
   SiGithub,
   SiTypescript,
   SiNextdotjs,
+  SiTailwindcss,
   SiPandas,
-  SiNumpy,
-  SiOpencv,
   SiPlotly,
+  SiOpencv,
+  SiFigma,
+  SiPostgresql,
+  SiNeo4J,
+  SiRedis,
+  SiJupyter,
+  SiSqlite,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 const PROJECTS = {
-  cardioTwin: { name: "CardioTwin", url: "https://github.com/krista9669/CardioTwin" },
+  cardioTwin: {
+    name: "CardioTwin",
+    url: "https://github.com/krista9669/CardioTwin",
+  },
   cv: { name: "CV", url: "https://github.com/krista9669/CV" },
   f1: { name: "F1", url: "https://github.com/krista9669/F1" },
-  questLog: { name: "quest-log", url: "https://github.com/krista9669/quest-log" },
-  regulus: { name: "Regulus", url: "https://github.com/krista9669/regulus-vscode-theme" },
+  questLog: {
+    name: "quest-log",
+    url: "https://github.com/krista9669/quest-log",
+  },
+  regulus: {
+    name: "regulus-vscode-theme",
+    url: "https://github.com/krista9669/regulus-vscode-theme",
+  },
+  gitForensics: {
+    name: "git-repository-forensics",
+    url: "https://github.com/krista9669/git-repository-forensics",
+  },
+  poseToCloth: {
+    name: "pose-to-cloth-prediction",
+    url: "https://github.com/krista9669/pose-to-cloth-prediction",
+  },
+  syntaxParser: {
+    name: "python-syntax-parser",
+    url: "https://github.com/krista9669/python-syntax-parser",
+  },
+  mlBasics: {
+    name: "ML_basics",
+    url: "https://github.com/krista9669/ML_basics",
+  },
+  vcs: {
+    name: "PES2UG24CS234-pes-vcs",
+    url: "https://github.com/krista9669/PES2UG24CS234-pes-vcs",
+  },
+  electronicsInventory: {
+    name: "Electronics Store Inventory Management System",
+    url: "https://github.com/ElectronicsStore-ManagementSystem/Team-9-Electronics-Store-Inventory-Management-System",
+  },
 };
 
 const SKILLS = [
-  { icon: SiPython, name: "Python", color: "#3776AB", category: "Languages", projects: [PROJECTS.f1, PROJECTS.cv, PROJECTS.cardioTwin] },
-  { icon: SiC, name: "C", color: "#A8B9CC", category: "Languages", projects: [] },
-  { icon: SiCplusplus, name: "C++", color: "#00599C", category: "Languages", projects: [] },
-  { icon: FaJava, name: "Java", color: "#ED8B00", category: "Languages", projects: [] },
-  { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E", category: "Languages", projects: [PROJECTS.questLog] },
-  { icon: SiTypescript, name: "TypeScript", color: "#3178C6", category: "Languages", projects: [PROJECTS.questLog] },
-  { icon: SiReact, name: "React", color: "#61DAFB", category: "Web", projects: [PROJECTS.questLog] },
-  { icon: SiNextdotjs, name: "Next.js", color: "#000000", category: "Web", projects: [PROJECTS.questLog] },
-  { icon: SiHtml5, name: "HTML", color: "#E34F26", category: "Web", projects: [PROJECTS.cardioTwin] },
-  { icon: SiCss, name: "CSS", color: "#1572B6", category: "Web", projects: [PROJECTS.questLog] },
-  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38B2AC", category: "Web", projects: [PROJECTS.questLog] },
-  { icon: SiNodedotjs, name: "Node.js", color: "#339933", category: "Web", projects: [PROJECTS.questLog] },
-  { icon: SiPandas, name: "Pandas", color: "#150458", category: "Data & ML", projects: [PROJECTS.f1] },
-  { icon: SiNumpy, name: "NumPy", color: "#F9C74F", category: "Data & ML", projects: [PROJECTS.f1, PROJECTS.cardioTwin] },
-  { icon: SiPlotly, name: "Matplotlib", color: "#FF6F00", category: "Data & ML", projects: [PROJECTS.f1] },
-  { icon: SiOpencv, name: "OpenCV", color: "#33A4DC", category: "Data & ML", projects: [PROJECTS.cv] },
-  { icon: SiPython, name: "FastF1", color: "#3776AB", category: "Data & ML", projects: [PROJECTS.f1] },
-  { icon: SiGit, name: "Git", color: "#F05032", category: "Tools", projects: [] },
-  { icon: SiGithub, name: "GitHub", color: "#FFFFFF", category: "Tools", projects: [] },
-  { icon: VscVscode, name: "VS Code", color: "#007ACC", category: "Tools", projects: [PROJECTS.regulus] },
+  {
+    icon: SiPython,
+    name: "Python",
+    color: "#3776AB",
+    category: "Languages",
+    projects: [
+      PROJECTS.poseToCloth,
+      PROJECTS.syntaxParser,
+      PROJECTS.mlBasics,
+      PROJECTS.f1,
+      PROJECTS.electronicsInventory,
+    ],
+  },
+  {
+    icon: SiC,
+    name: "C",
+    color: "#A8B9CC",
+    category: "Languages",
+    projects: [PROJECTS.vcs],
+  },
+  {
+    icon: SiCplusplus,
+    name: "C++",
+    color: "#00599C",
+    category: "Languages",
+    projects: [],
+  },
+  {
+    icon: FaJava,
+    name: "Java",
+    color: "#ED8B00",
+    category: "Languages",
+    projects: [],
+  },
+  {
+    icon: SiJavascript,
+    name: "JavaScript",
+    color: "#F7DF1E",
+    category: "Languages",
+    projects: [],
+  },
+  {
+    icon: SiTypescript,
+    name: "TypeScript",
+    color: "#3178C6",
+    category: "Languages",
+    projects: [PROJECTS.questLog, PROJECTS.gitForensics],
+  },
+  {
+    icon: SiReact,
+    name: "React",
+    color: "#61DAFB",
+    category: "Web",
+    projects: [PROJECTS.questLog, PROJECTS.gitForensics],
+  },
+  {
+    icon: SiNextdotjs,
+    name: "Next.js",
+    color: "#000000",
+    category: "Web",
+    projects: [PROJECTS.questLog, PROJECTS.gitForensics],
+  },
+  {
+    icon: SiHtml5,
+    name: "HTML",
+    color: "#E34F26",
+    category: "Web",
+    projects: [PROJECTS.cardioTwin],
+  },
+  {
+    icon: SiCss,
+    name: "CSS",
+    color: "#1572B6",
+    category: "Web",
+    projects: [PROJECTS.questLog],
+  },
+  {
+    icon: SiTailwindcss,
+    name: "Tailwind CSS",
+    color: "#38B2AC",
+    category: "Web",
+    projects: [PROJECTS.questLog],
+  },
+  {
+    icon: SiPandas,
+    name: "Pandas",
+    color: "#150458",
+    category: "Data & ML",
+    projects: [PROJECTS.f1],
+  },
+  {
+    icon: SiPlotly,
+    name: "Plotly",
+    color: "#FF6F00",
+    category: "Data & ML",
+    projects: [PROJECTS.f1],
+  },
+  {
+    icon: SiJupyter,
+    name: "Jupyter Notebook",
+    color: "#F37626",
+    category: "Data & ML",
+    projects: [PROJECTS.cv],
+  },
+  {
+    icon: SiOpencv,
+    name: "Computer Vision",
+    color: "#33A4DC",
+    category: "Data & ML",
+    projects: [PROJECTS.cv, PROJECTS.poseToCloth],
+  },
+  {
+    icon: SiPostgresql,
+    name: "PostgreSQL",
+    color: "#4169E1",
+    category: "Systems & Data",
+    projects: [PROJECTS.gitForensics],
+  },
+  {
+    icon: SiNeo4J,
+    name: "Neo4j",
+    color: "#008CC1",
+    category: "Systems & Data",
+    projects: [PROJECTS.gitForensics],
+  },
+  {
+    icon: SiRedis,
+    name: "Redis",
+    color: "#DC382D",
+    category: "Systems & Data",
+    projects: [PROJECTS.gitForensics],
+  },
+  {
+    icon: SiSqlite,
+    name: "SQL",
+    color: "#003B57",
+    category: "Systems & Data",
+    projects: [PROJECTS.gitForensics],
+  },
+  {
+    icon: SiGit,
+    name: "Git",
+    color: "#F05032",
+    category: "Tools",
+    projects: [PROJECTS.gitForensics],
+  },
+  {
+    icon: SiGithub,
+    name: "GitHub",
+    color: "#FFFFFF",
+    category: "Tools",
+    projects: [],
+  },
+  {
+    icon: VscVscode,
+    name: "VS Code",
+    color: "#007ACC",
+    category: "Tools",
+    projects: [PROJECTS.regulus],
+  },
+  {
+    icon: SiFigma,
+    name: "Figma",
+    color: "#F24E1E",
+    category: "Tools",
+    projects: [],
+  },
 ];
 
-const CATEGORIES = ["All", "Languages", "Web", "Data & ML", "Tools"];
+const CATEGORIES = [
+  "All",
+  "Languages",
+  "Web",
+  "Data & ML",
+  "Systems & Data",
+  "Tools",
+];
 
 const INTERESTS = [
-  "Open Source Contributions",
-  "Formula 1 Analytics",
-  "Data Visualization",
-  "Web Development",
-  "Computer Vision",
+  "Git Repository Analytics",
   "Machine Learning",
+  "Formula 1 Data Visualization",
+  "Python Parsing",
+  "VS Code Themes",
+  "Web Development",
 ];
 
-// Placeholder — swap this out for a real one about yourself.
 const FUN_FACT =
   "I usually fall in love with a project name before I figure out what the project is. Quest Log was no different. It eventually became a record of my journey; every project, every experiment, every lesson and every small step toward becoming a better engineer. ";
 
@@ -182,14 +372,17 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-3 text-sm sm:text-base leading-6 sm:leading-7 text-slate-300">
               <p>
-                3rd-year CS student at PES University, and a serial starter of
-                projects fuelled by whatever&apos;s got my curiosity that week i.e.
-                a new technology, a good book or a rabbit hole into how
-                people think.
+                I&apos;m a 3rd-year CSE student at PES University who learns by
+                building. My projects include a portfolio, Git repository
+                analytics, machine-learning experiments, Formula 1 data
+                visualizations, and programming projects in Python, TypeScript,
+                C and HTML.
               </p>
               <p>
-                I like building things, solving problems and poking around
-                the intersection of creativity, tech and human behavior.
+                I enjoy exploring how software works through hands-on projects:
+                analyzing Git history, experimenting with cloth-deformation
+                prediction, parsing Python syntax, and shaping a focused coding
+                experience with a VS Code theme.
               </p>
             </div>
 
@@ -232,8 +425,8 @@ export default function AboutPage() {
               Current Quest
             </h2>
             <p className="text-sm sm:text-base leading-6 sm:leading-7 text-slate-300">
-              Building projects, contributing to open source and learning new
-              technologies.
+              Exploring web development, Git analytics, machine learning and
+              data visualization through the projects I build.
             </p>
           </article>
 
@@ -247,8 +440,8 @@ export default function AboutPage() {
               Current Objective
             </h2>
             <p className="text-sm sm:text-base leading-6 sm:leading-7 text-slate-300">
-              Keep learning, keep building and create things I&apos;m
-              genuinely proud of.
+              Keep turning curiosity into projects, from cloth-prediction
+              experiments to practical tools for exploring Git history.
             </p>
           </article>
         </div>
