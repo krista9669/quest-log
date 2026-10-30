@@ -254,13 +254,13 @@ const INTERESTS = [
   "Machine Learning",
   "Web Development",
   "AI Agents",
-  "Data Anayltics",
+  "Data Analytics",
   "Database Management",
   "Big Data",
 ];
 
 const FUN_FACT =
-  "I usually fall in love with a project name before I figure out what the project is. Quest Log was no different. It eventually became a record of my journey; every project, every experiment, every lesson and every small step toward becoming a better engineer. ";
+  "I often fall in love with a project name before I know what the project will become. Quest Log started that way and grew into a place to document what I build, learn, and discover along the way.";
 
 const TYPEWRITER_TEXT = "Hi, I'm Krishitha";
 const CONTACT_EMAIL = "krishithaaaa@gmail.com";
@@ -372,17 +372,17 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-3 text-sm sm:text-base leading-6 sm:leading-7 text-slate-300">
               <p>
-                I&apos;m a 3rd-year CSE student at PES University who learns by
-                building. My projects include a portfolio, Git repository
-                analytics, machine-learning experiments, Formula 1 data
-                visualizations, and programming projects in Python, TypeScript,
-                C and HTML.
+                I&apos;m a third-year CSE student at PES University who learns
+                best by building. My work spans Git repository analytics,
+                machine-learning experiments, Formula 1 data visualizations,
+                and web development, using languages including Python,
+                TypeScript, C, and HTML.
               </p>
               <p>
-                I enjoy exploring how software works through hands-on projects:
-                analyzing Git history, experimenting with cloth-deformation
-                prediction, parsing Python syntax, and shaping a focused coding
-                experience with a VS Code theme.
+                I enjoy understanding how software works by building things
+                hands-on—from tools that analyze Git history and parse Python
+                syntax to cloth-prediction experiments and a VS Code theme
+                designed for focused coding.
               </p>
             </div>
 
@@ -425,8 +425,8 @@ export default function AboutPage() {
               Current Quest
             </h2>
             <p className="text-sm sm:text-base leading-6 sm:leading-7 text-slate-300">
-              Exploring web development, Git analytics, machine learning and
-              data visualization through the projects I build.
+              Bringing together web development, data engineering, and machine
+              learning while strengthening my software engineering foundations.
             </p>
           </article>
 
@@ -440,8 +440,8 @@ export default function AboutPage() {
               Current Objective
             </h2>
             <p className="text-sm sm:text-base leading-6 sm:leading-7 text-slate-300">
-              Keep turning curiosity into projects, from cloth-prediction
-              experiments to practical tools for exploring Git history.
+              Keep taking ideas from exploration to working software, and share
+              what I learn along the way.
             </p>
           </article>
         </div>
